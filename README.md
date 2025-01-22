@@ -95,7 +95,7 @@ To ensure reliable analysis, the following data cleaning steps were implemented:
 5. **Feature Engineering:**
    - Derived new columns (e.g., "profit margin") to facilitate deeper analysis.
      
-#### Exploratory Data Analysis
+# **Exploratory Data Analysis**
 
 Using the Tableau dashboard, the following insights were derived:
 
@@ -114,12 +114,7 @@ Using the Tableau dashboard, the following insights were derived:
 4. **Casting Insights:**
    - A-list actors consistently attract larger audiences, but the story quality (as reflected by user reviews) remains a critical factor.
 
-<div align="center">
-    <img src="pictures/movie_data_erd.jpeg" alt="Database Schema" width="800">
-    <p><em>Data Analysis Framework</em></p>
-</div>
-
-### Recommendations and Conclusions
+# **Recommendations and Conclusions**
 
 1. **Genre Focus:**
    - Prioritize creating **Drama** and **Action** films targeting North American audiences, as they show the strongest performance metrics.
