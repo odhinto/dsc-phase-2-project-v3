@@ -57,7 +57,7 @@ We then load the dataset into python as a dataframe and embark on a data underst
 
 ### Data Understanding
 
-The movie database contains the following tables with shown columns
+The movie database contains the following tables with shown columns:
 
 *   **principals**:
 
@@ -71,21 +71,108 @@ principals_df.head()
 
 ![image](https://github.com/user-attachments/assets/ffd68c86-7102-4032-860d-85dd3800fab2)
 
-Principals table details main people (using their person_id)that were involved with different movies (using the movie_id) and the capacities in which they were involved e.g. director, actor, producer etc. There could be a relationship between these people and the success of the movie in the box office
+The principals table details main people (using their person_id)that were involved with different movies (using the movie_id) and the capacities in which they were involved e.g. director, actor, producer etc. There could be a relationship between these people and the success of the movie in the box office
 
-*   **persons**: insert description and data summary
-*   **known_for**: insert description and data summary
-*   **directors**: insert description and data summary
+*   **persons**:
+#Explore persons table
+persons_query = """
+                      SELECT *
+                      FROM persons"""
+persons_df = pd.read_sql(persons_query, conn)
+persons_df.to_csv('persons.csv')   #create a persons csv file to facilitate EDA on Tableau
+persons_df.head()
+
+![image](https://github.com/user-attachments/assets/66ac232a-c0fb-4b79-a8da-59e75efc6ced)
+
+The persons table details the name, birth year, death year and primary professions of the various people using their person_id. There could be a relationship between the people involved in a movie and the success of the movie in the box office.
+ 
+*   **known_for**:
+  
+#Explore known_for table
+known_for_query = """
+                      SELECT *
+                      FROM known_for"""
+known_for_df = pd.read_sql(known_for_query, conn)
+known_for_df.to_csv('known_for.csv')   #create a known_for csv file to facilitate EDA on Tableau
+known_for_df.head()
+
+![image](https://github.com/user-attachments/assets/5bebda41-1b18-483f-ac93-8002a63c8226)
+
+Known_for table details the various movies different people are known for by person_id and movie_id.
+
+*   **directors**:
+
+#Explore directors table
+directors_query = """
+                      SELECT *
+                      FROM directors"""
+directors_df = pd.read_sql(directors_query, conn)
+directors_df.to_csv('directors.csv')   #create a directors csv file to facilitate EDA on Tableau
+directors_df.head()
+
+![image](https://github.com/user-attachments/assets/a30f8dde-24ef-44b3-89a5-9a6da837a707)
+
+Directors table details the various movies and the people they are known for by movie_id and person_id. There could be a relationship between the directors of a movie and the success of the movie in the box office.
+
 *   **writers**: insert description and data summary
-*   **movie_basics**: insert description and data summary
-*   **dmovie_ratings**: insert description and data summary
-*   **movie_akas**: insert description and data summary
+
+#Explore writers table
+writers_query = """
+                      SELECT *
+                      FROM writers"""
+writers_df = pd.read_sql(writers_query, conn)
+writers_df.to_csv('writers.csv')   #create a writers csv file to facilitate EDA on Tableau
+writers_df.head()
+
+![image](https://github.com/user-attachments/assets/49ace174-b171-4182-83b1-e8b2e8244d5a)
+
+Writers table details the various movies and their pewriters by movie_id and person_id. There could be a relationship between the writers of a movie and the success of the movie in the box office.
+
+*   **movie_basics**:
+
+#Explore movie_basics table
+movie_query = """
+                      SELECT *
+                      FROM movie_basics"""
+movie_df = pd.read_sql(movie_query, conn)
+movie_df.to_csv('movie.csv')   #create a movies csv file to facilitate EDA on Tableau
+movie_df.head()
+
+![image](https://github.com/user-attachments/assets/b491a681-e270-4208-a14c-83f8ddce34b8)
+
+Movie_basics table details the various movie titles, the year they were released, the run-time minutes and the various genres (there may be need for feature engineering around this aspect). There could be a relationship between these parameters and the success of a movie in the box office.
+
+*   **movie_ratings**:
+
+#Explore movie_ratings table
+movie_ratings_query = """
+                      SELECT *
+                      FROM movie_ratings"""
+movie_ratings_df = pd.read_sql(movie_ratings_query, conn)
+movie_ratings_df.to_csv('movie_ratings.csv')   #create a movies ratings csv file to facilitate EDA on Tableau
+movie_ratings_df.head()
+
+![image](https://github.com/user-attachments/assets/f67cf198-7561-4816-bfb9-c9a05a7018a0)
+
+This table shows the average rating for each movie by movie_id and also the number of votes it received (which could give insight into how many people watched it??). There could be a relationship between these parameters and the success of a movie in the box office.
+
+*   **movie_akas**:
+#Explore movie_akas table
+movie_akas_query = """
+                      SELECT *
+                      FROM movie_akas"""
+movie_akas_df = pd.read_sql(movie_akas_query, conn)
+movie_akas_df.to_csv('movie_akas.csv')   #create a movies_akas csv file to facilitate EDA on Tableau
+movie_akas_df.head()
+
+  ![image](https://github.com/user-attachments/assets/b0070954-a043-40bc-9291-73a28be69b40)
+
+This table shows other movie features e.g. the region, language, type and attributes. There could be a relationship between these features and the success of a movie in the box office.
 
 <div align="center">
     <img src="pictures/movie_data_erd.jpeg" alt="Database Schema" width="800">
     <p><em>Dirty Makers - Needs Cleaning with Fuzzy Logic</em></p>
 </div>
-
 
 ## **Data Cleaning**
 
