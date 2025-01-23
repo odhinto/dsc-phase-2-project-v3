@@ -59,7 +59,20 @@ We then load the dataset into python as a dataframe and embark on a data underst
 
 The movie database contains the following tables with shown columns
 
-*   **principals**: insert description and data summary
+*   **principals**:
+
+#Explore principal table
+principals_query = """
+                      SELECT *
+                      FROM principals"""
+principals_df = pd.read_sql(principals_query, conn)
+principals_df.to_csv('principals.csv')   #create a principals csv file to facilitate EDA on Tableau
+principals_df.head()
+
+![image](https://github.com/user-attachments/assets/ffd68c86-7102-4032-860d-85dd3800fab2)
+
+Principals table details main people (using their person_id)that were involved with different movies (using the movie_id) and the capacities in which they were involved e.g. director, actor, producer etc. There could be a relationship between these people and the success of the movie in the box office
+
 *   **persons**: insert description and data summary
 *   **known_for**: insert description and data summary
 *   **directors**: insert description and data summary
