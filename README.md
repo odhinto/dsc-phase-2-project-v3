@@ -71,9 +71,10 @@ principals_df.head()
 
 ![image](https://github.com/user-attachments/assets/ffd68c86-7102-4032-860d-85dd3800fab2)
 
-The principals table details main people (using their person_id)that were involved with different movies (using the movie_id) and the capacities in which they were involved e.g. director, actor, producer etc. There could be a relationship between these people and the success of the movie in the box office
+The principals table details main people (using their person_id)that were involved with different movies (using the movie_id) and the capacities in which they were involved e.g. director, actor, producer etc. There could be a relationship between these people and the success of the movie in the box office.
 
 *   **persons**:
+  
 #Explore persons table
 persons_query = """
                       SELECT *
@@ -114,7 +115,7 @@ directors_df.head()
 
 Directors table details the various movies and the people they are known for by movie_id and person_id. There could be a relationship between the directors of a movie and the success of the movie in the box office.
 
-*   **writers**: insert description and data summary
+*   **writers**:
 
 #Explore writers table
 writers_query = """
@@ -157,6 +158,7 @@ movie_ratings_df.head()
 This table shows the average rating for each movie by movie_id and also the number of votes it received (which could give insight into how many people watched it??). There could be a relationship between these parameters and the success of a movie in the box office.
 
 *   **movie_akas**:
+  
 #Explore movie_akas table
 movie_akas_query = """
                       SELECT *
