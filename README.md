@@ -199,7 +199,7 @@ To ensure reliable analysis, the following data cleaning steps were implemented:
      
 # **Exploratory Data Analysis**
 
-Using the Tableau dashboard, the following insights were derived:
+Using the Tableau dashboard, the following insights were derived: (add visualization results)
 
 1. **Highest Rated Genres and Regions:**
    - **Drama** and **Action** movies dominate in terms of ratings across all regions.
